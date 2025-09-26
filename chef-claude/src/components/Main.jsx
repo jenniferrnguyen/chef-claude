@@ -9,7 +9,7 @@ export default function Main() {
 
     function handleSubmit(event) {
         event.preventDefault()
-        const formData = new FormData(event.currentTarget)
+        const formData = new FormData(event.currentTarget).trim()
         const newIngredient = formData.get("ingredient")
         if (newIngredient && !ingredients.includes(newIngredient)) {
             setIngredients(prev => [...prev, newIngredient])
