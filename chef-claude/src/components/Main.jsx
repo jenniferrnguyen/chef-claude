@@ -14,10 +14,10 @@ export default function Main() {
         }
     }
 
-    function ingredientsAndGetRecipe() {
+    const ingredientsAndGetRecipe = () => {
         return (
             <section>
-                <h2>Ingredients on hand:</h2>
+                <h2 className="ingredients-header">Ingredients on hand:</h2>
                 <ul className="ingredients-list" aria-live="polite">{ingredientsListItems}</ul>
                 <div className="get-recipe-container">
                     <div>
