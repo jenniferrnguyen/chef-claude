@@ -103,4 +103,9 @@ ul.ingredients-list > li {
   cursor: pointer; 
 }
 
+.ingredients-and-get-recipe-section {
+  max-width: 1000px;
+  margin:0 auto;
+}
+
 
