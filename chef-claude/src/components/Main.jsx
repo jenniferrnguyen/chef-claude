@@ -1,5 +1,5 @@
 import React from "react";
-import ClaudeRecipe from "./ClaudeRecipe";
+import AiRecipe from "./AiRecipe";
 import IngredientsList from "./IngredientsList";
 
 export default function Main() {
@@ -36,7 +36,7 @@ export default function Main() {
         />
       )}
 
-      {recipeShown && <ClaudeRecipe />}
+      {recipeShown && <AiRecipe />}
     </main>
   );
 }

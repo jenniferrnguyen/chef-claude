@@ -1,10 +1,10 @@
-import chefClaudeIcon from "/src/images/chef-claude-icon.png"
+import chefClydeIcon from "/src/images/chef-clyde-icon.png";
 
 export default function Header() {
-    return (
-        <header className="header">
-            <img className="header-icon" src={chefClaudeIcon} alt="chef claude icon"/>
-            <span className="header-text">Chef Claude</span>
-        </header>
-    )
+  return (
+    <header className="header">
+      <img className="header-icon" src={chefClydeIcon} alt="chef Clyde icon" />
+      <span className="header-text">Chef Clyde</span>
+    </header>
+  );
 }

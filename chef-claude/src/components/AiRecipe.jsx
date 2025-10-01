@@ -1,7 +1,7 @@
-export default function ClaudeRecipe() {
+export default function AiRecipe() {
   return (
     <section>
-      <h2>Chef Claude Recommends:</h2>
+      <h2>Chef Clyde Recommends:</h2>
       <article className="suggested-recipe-container" aria-live="polite">
         <p>
           Based on the ingredients you have available, I would recommend making
