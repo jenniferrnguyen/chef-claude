@@ -1,10 +1,11 @@
 import React from "react";
 import AiRecipe from "./AiRecipe";
 import IngredientsList from "./IngredientsList";
+import { getRecipeFromMistral } from "../ai";
 
 export default function Main() {
   const [ingredients, setIngredients] = React.useState([]);
-  const [recipeShown, setRecipeShown] = React.useState(false);
+  const [aiRecipe, setAiRecipe] = React.useState("");
 
   function addIngredient(formData) {
     const newIngredient = formData.get("ingredient");
@@ -13,30 +14,40 @@ export default function Main() {
     }
   }
 
-  function toggleRecipeShown() {
-    setRecipeShown((prev) => !prev);
+  async function getRecipe() {
+    if (aiRecipe === "") {
+      try {
+        const recipeMarkdown = await getRecipeFromMistral(ingredients);
+        setAiRecipe(recipeMarkdown);
+      } catch (err) {
+        console.error("Error fetching recipe:", err);
+      }
+    }
   }
 
   return (
     <main>
-      <form action={addIngredient} className="add-ingredient-form">
-        <input
-          type="text"
-          aria-label="Add ingredient"
-          placeholder="e.g. oregano"
-          name="ingredient"
-        />
-        <button>+ Add ingredient</button>
-      </form>
+      {aiRecipe === "" && (
+        <form action={addIngredient} className="add-ingredient-form">
+          <input
+            type="text"
+            aria-label="Add ingredient"
+            placeholder="e.g. oregano"
+            name="ingredient"
+          />
+          <button>+ Add ingredient</button>
+        </form>
+      )}
 
       {ingredients.length > 0 && (
         <IngredientsList
           ingredients={ingredients}
-          toggleRecipeShown={toggleRecipeShown}
+          getRecipe={getRecipe}
+          aiRecipe={aiRecipe}
         />
       )}
 
-      {recipeShown && <AiRecipe />}
+      {aiRecipe != "" && <AiRecipe recipe={aiRecipe} />}
     </main>
   );
 }

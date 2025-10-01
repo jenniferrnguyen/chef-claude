@@ -109,3 +109,17 @@ ul.ingredients-list > li {
   max-width: 1000px;
   margin: 0 auto;
 }
+
+.ai-recipe-section {
+  max-width: 1000px;
+  margin: 52px auto;
+  color: #475467;
+  line-height: 28px;
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+.ai-recipe-section ul li,
+.ai-recipe-section ol li {
+  margin-bottom: 8px;
+}

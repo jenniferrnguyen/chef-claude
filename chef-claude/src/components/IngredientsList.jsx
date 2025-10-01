@@ -9,13 +9,13 @@ export default function IngredientsList(props) {
       <ul className="ingredients-list" aria-live="polite">
         {ingredientListItems}
       </ul>
-      {props.ingredients.length > 3 && (
+      {props.ingredients.length > 3 && props.aiRecipe === "" && (
         <div className="get-recipe-container">
           <div>
             <h3>Ready for a recipe?</h3>
             <p>Generate a recipe from your list of ingredients.</p>
           </div>
-          <button onClick={props.toggleRecipeShown}>Get a recipe</button>
+          <button onClick={props.getRecipe}>Get a recipe</button>
         </div>
       )}
     </section>
