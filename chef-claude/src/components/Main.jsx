@@ -8,6 +8,14 @@ export default function Main() {
   const [aiRecipe, setAiRecipe] = React.useState("");
   const [loading, setLoading] = React.useState(false);
 
+  const recipeSectionRef = React.useRef(null);
+
+  React.useEffect(() => {
+    if (aiRecipe !== "" && recipeSectionRef !== null) {
+      recipeSectionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [aiRecipe]);
+
   function addIngredient(formData) {
     const newIngredient = formData.get("ingredient");
     if (newIngredient && !ingredients.includes(newIngredient)) {
@@ -53,7 +61,7 @@ export default function Main() {
 
       {loading && <div className="spinner"></div>}
 
-      {aiRecipe != "" && <AiRecipe recipe={aiRecipe} />}
+      {aiRecipe != "" && <AiRecipe ref={recipeSectionRef} recipe={aiRecipe} />}
     </main>
   );
 }
